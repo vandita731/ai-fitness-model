@@ -163,3 +163,42 @@ html {
     transform: translateY(0);
   }
 }
+
+
+/* Ensure dark mode is applied properly */
+html.dark {
+  color-scheme: dark;
+}
+
+html.light {
+  color-scheme: light;
+}
+
+/* Dark mode specific overrides */
+.dark {
+  --color-background: oklch(15% 0.05 222);
+  --color-foreground: oklch(92% 0.03 213);
+  --color-card: oklch(18% 0.05 222);
+  --color-card-foreground: oklch(92% 0.03 213);
+  --color-popover: oklch(18% 0.05 222);
+  --color-popover-foreground: oklch(92% 0.03 213);
+  --color-primary: oklch(65% 0.2 217);
+  --color-primary-foreground: oklch(20% 0.05 222);
+  --color-secondary: oklch(22% 0.05 222);
+  --color-secondary-foreground: oklch(92% 0.03 213);
+  --color-muted: oklch(22% 0.05 222);
+  --color-muted-foreground: oklch(68% 0.02 215);
+  --color-accent: oklch(65% 0.2 217);
+  --color-accent-foreground: oklch(20% 0.05 222);
+  --color-destructive: oklch(45% 0.15 0);
+  --color-destructive-foreground: oklch(92% 0.03 213);
+  --color-border: oklch(22% 0.05 222);
+  --color-input: oklch(22% 0.05 222);
+  --color-ring: oklch(65% 0.2 217);
+}
+
+.dark .gradient-bg {
+  background: 
+    linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+    linear-gradient(225deg, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
+}

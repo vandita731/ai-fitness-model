@@ -40,11 +40,8 @@ export default function FitnessForm({ onSubmit, loading }: FitnessFormProps) {
   };
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (step === 3 && !loading) {
-      onSubmit(formData);
-    }
-  };
+  e.preventDefault();
+};
 
   const bmi = (formData.weight / Math.pow(formData.height / 100, 2)).toFixed(1);
   const bmiCategory =
@@ -348,8 +345,9 @@ export default function FitnessForm({ onSubmit, loading }: FitnessFormProps) {
                   </Button>
                 ) : (
                   <Button
-                    type="submit"
-                    disabled={loading}
+  type="button"
+  disabled={loading}
+  onClick={() => onSubmit(formData)}
                     className="gap-1.5 h-9"
                     size="sm"
                   >

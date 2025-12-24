@@ -290,7 +290,12 @@ export default function PlanDisplay({
                             <div 
                               key={exIndex}
                               className="p-4 bg-background rounded-lg border hover:border-primary/50 transition-all group cursor-pointer"
-                              onClick={() => onImageGenerate(`${exercise.name} exercise demonstration`)}
+                              onClick={() =>
+  onImageGenerate(
+    `${exercise.name}, fitness exercise, gym, proper form, trainer demonstration`
+  )
+}
+
                             >
                               <div className="flex items-start justify-between">
                                 <div className="flex-1">

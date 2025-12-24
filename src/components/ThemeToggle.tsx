@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { Moon, Sun } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function ThemeToggle() {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
@@ -11,53 +12,40 @@ export default function ThemeToggle() {
   useEffect(() => {
     setMounted(true);
     
-    // Check for saved theme or system preference
-    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+    // Get initial theme
+    const storedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
+    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    const initialTheme = storedTheme || systemTheme;
     
-    // Apply theme immediately
-    applyTheme(initialTheme);
     setTheme(initialTheme);
+    applyTheme(initialTheme);
   }, []);
 
   const applyTheme = (newTheme: 'light' | 'dark') => {
     const root = document.documentElement;
     
-    if (newTheme === 'dark') {
-      root.classList.add('dark');
-      root.style.colorScheme = 'dark';
-    } else {
-      root.classList.remove('dark');
-      root.style.colorScheme = 'light';
-    }
+    // Remove both classes first
+    root.classList.remove('light', 'dark');
+    
+    // Add the new theme class
+    root.classList.add(newTheme);
+    
+    // Also set color-scheme for native browser elements
+    root.style.colorScheme = newTheme;
   };
 
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     
-    // Update state
+    console.log('Toggling theme from', theme, 'to', newTheme); // Debug log
+    
     setTheme(newTheme);
-    
-    // Save to localStorage
     localStorage.setItem('theme', newTheme);
-    
-    // Apply theme
     applyTheme(newTheme);
   };
 
-  // Prevent hydration mismatch by not rendering until mounted
   if (!mounted) {
-    return (
-      <Button
-        variant="outline"
-        size="icon"
-        className="fixed top-20 right-4 z-40 h-9 w-9 shadow-lg"
-        disabled
-      >
-        <Sun className="h-4 w-4" />
-      </Button>
-    );
+    return null;
   }
 
   return (
@@ -65,14 +53,32 @@ export default function ThemeToggle() {
       variant="outline"
       size="icon"
       onClick={toggleTheme}
-      className="fixed top-20 right-4 z-40 h-9 w-9 shadow-lg hover:bg-accent transition-colors"
-      aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+      className="fixed top-4 right-4 z-50 h-10 w-10 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border-2"
+      aria-label="Toggle theme"
     >
-      {theme === 'light' ? (
-        <Moon className="h-4 w-4 transition-transform hover:rotate-12" />
-      ) : (
-        <Sun className="h-4 w-4 transition-transform hover:rotate-45" />
-      )}
+      <AnimatePresence mode="wait" initial={false}>
+        {theme === 'light' ? (
+          <motion.div
+            key="moon"
+            initial={{ rotate: -90, opacity: 0 }}
+            animate={{ rotate: 0, opacity: 1 }}
+            exit={{ rotate: 90, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            <Moon className="h-5 w-5" />
+          </motion.div>
+        ) : (
+          <motion.div
+            key="sun"
+            initial={{ rotate: 90, opacity: 0 }}
+            animate={{ rotate: 0, opacity: 1 }}
+            exit={{ rotate: -90, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            <Sun className="h-5 w-5" />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </Button>
   );
 }
