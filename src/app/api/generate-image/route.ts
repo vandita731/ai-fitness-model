@@ -1,38 +1,47 @@
 import { NextResponse } from 'next/server';
 
-const UNSPLASH_ACCESS_KEY = process.env.UNSPLASH_ACCESS_KEY!;
-
 export async function POST(req: Request) {
   try {
     const { prompt } = await req.json();
 
-    const query = encodeURIComponent(prompt);
+    if (!prompt) {
+      return NextResponse.json({ imageUrl: null }, { status: 400 });
+    }
+
+    const accessKey = process.env.UNSPLASH_ACCESS_KEY;
+    if (!accessKey) {
+      console.error('Missing UNSPLASH_ACCESS_KEY');
+      return NextResponse.json({ imageUrl: null }, { status: 500 });
+    }
+
+    // 🔥 IMPORTANT: make query Unsplash-friendly
+    const query = encodeURIComponent(prompt.split(',')[0].trim());
 
     const res = await fetch(
       `https://api.unsplash.com/search/photos?query=${query}&per_page=1&orientation=squarish`,
       {
         headers: {
-          Authorization: `Client-ID ${UNSPLASH_ACCESS_KEY}`,
+          Authorization: `Client-ID ${accessKey}`,
+          'Accept-Version': 'v1',
+          'User-Agent': 'ai-fitness-coach-vercel',
         },
+        cache: 'no-store',
       }
     );
 
     if (!res.ok) {
-      throw new Error('Unsplash API failed');
+      const text = await res.text();
+      console.error('Unsplash error:', res.status, text);
+      return NextResponse.json({ imageUrl: null }, { status: 500 });
     }
 
     const data = await res.json();
 
-    const imageUrl =
-      data.results?.[0]?.urls?.regular ||
-      null;
-
-    return NextResponse.json({ imageUrl });
+    return NextResponse.json({
+      imageUrl: data?.results?.[0]?.urls?.regular ?? null,
+    });
   } catch (error) {
-    console.error('Unsplash image error:', error);
-    return NextResponse.json(
-      { imageUrl: null },
-      { status: 500 }
-    );
+    console.error('Generate image error:', error);
+    return NextResponse.json({ imageUrl: null }, { status: 500 });
   }
 }
