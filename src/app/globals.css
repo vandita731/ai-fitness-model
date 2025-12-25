@@ -1,97 +1,87 @@
 @import "tailwindcss";
 
 @theme {
-  /* Fitness Red Color Palette - Light Mode */
-  --color-background: oklch(98% 0.01 20);
-  --color-foreground: oklch(15% 0.02 20);
-
-  --color-card: oklch(100% 0 0);
-  --color-card-foreground: oklch(15% 0.02 20);
-
-  --color-popover: oklch(100% 0 0);
-  --color-popover-foreground: oklch(15% 0.02 20);
-
-  /* Primary - Vibrant Red */
-  --color-primary: oklch(50% 0.25 27);
-  --color-primary-foreground: oklch(100% 0 0);
-
-  /* Secondary - Dark Gray */
-  --color-secondary: oklch(92% 0.01 20);
-  --color-secondary-foreground: oklch(15% 0.02 20);
-
-  --color-muted: oklch(95% 0.01 20);
-  --color-muted-foreground: oklch(50% 0.01 20);
-
-  /* Accent - Bright Red */
-  --color-accent: oklch(55% 0.27 27);
-  --color-accent-foreground: oklch(100% 0 0);
-
-  --color-destructive: oklch(50% 0.25 27);
-  --color-destructive-foreground: oklch(100% 0 0);
-
-  --color-border: oklch(90% 0.01 20);
-  --color-input: oklch(90% 0.01 20);
-  --color-ring: oklch(50% 0.25 27);
-
-  /* Success - Green */
-  --color-success: oklch(60% 0.15 145);
-  --color-success-foreground: oklch(100% 0 0);
-
-  /* Warning - Orange */
-  --color-warning: oklch(65% 0.2 50);
-  --color-warning-foreground: oklch(100% 0 0);
-
+  /* LIGHT MODE */
+  --color-background: #F8FAFC;
+  --color-foreground: #0F172A;
+  --color-card: #FFFFFF;
+  --color-card-foreground: #0F172A;
+  --color-popover: #FFFFFF;
+  --color-popover-foreground: #0F172A;
+  --color-primary: #3B82F6;
+  --color-primary-foreground: #FFFFFF;
+  --color-secondary: #F1F5F9;
+  --color-secondary-foreground: #0F172A;
+  --color-muted: #F1F5F9;
+  --color-muted-foreground: #64748B;
+  --color-accent: #8B5CF6;
+  --color-accent-foreground: #FFFFFF;
+  --color-destructive: #EF4444;
+  --color-destructive-foreground: #FFFFFF;
+  --color-border: #E2E8F0;
+  --color-input: #FFFFFF;
+  --color-ring: #3B82F6;
+  --color-success: #10B981;
+  --color-success-foreground: #FFFFFF;
+  --color-warning: #F59E0B;
+  --color-warning-foreground: #FFFFFF;
   --radius-lg: 0.75rem;
   --radius-md: 0.5rem;
   --radius-sm: 0.25rem;
 }
 
+/* DARK MODE */
+.dark {
+  --color-background: #0F172A !important;
+  --color-foreground: #F1F5F9 !important;
+  --color-card: #1E293B !important;
+  --color-card-foreground: #F1F5F9 !important;
+  --color-popover: #1E293B !important;
+  --color-popover-foreground: #F1F5F9 !important;
+  --color-primary: #60A5FA !important;
+  --color-primary-foreground: #0F172A !important;
+  --color-secondary: #334155 !important;
+  --color-secondary-foreground: #F1F5F9 !important;
+  --color-muted: #334155 !important;
+  --color-muted-foreground: #94A3B8 !important;
+  --color-accent: #A78BFA !important;
+  --color-accent-foreground: #0F172A !important;
+  --color-destructive: #F87171 !important;
+  --color-destructive-foreground: #0F172A !important;
+  --color-border: #334155 !important;
+  --color-input: #1E293B !important;
+  --color-ring: #60A5FA !important;
+  --color-success: #34D399 !important;
+  --color-warning: #FBBF24 !important;
+}
+
 @media (prefers-color-scheme: dark) {
   @theme {
-    /* Dark Mode - Deep Black with Red Accents */
-    --color-background: oklch(10% 0.02 20);
-    --color-foreground: oklch(98% 0.01 20);
-
-    --color-card: oklch(15% 0.02 20);
-    --color-card-foreground: oklch(98% 0.01 20);
-
-    --color-popover: oklch(12% 0.02 20);
-    --color-popover-foreground: oklch(98% 0.01 20);
-
-    /* Primary - Vibrant Red (slightly brighter for dark mode) */
-    --color-primary: oklch(58% 0.27 27);
-    --color-primary-foreground: oklch(10% 0.02 20);
-
-    /* Secondary - Lighter Gray for contrast */
-    --color-secondary: oklch(20% 0.02 20);
-    --color-secondary-foreground: oklch(98% 0.01 20);
-
-    --color-muted: oklch(20% 0.02 20);
-    --color-muted-foreground: oklch(65% 0.01 20);
-
-    /* Accent - Bright Red */
-    --color-accent: oklch(58% 0.27 27);
-    --color-accent-foreground: oklch(10% 0.02 20);
-
-    --color-destructive: oklch(55% 0.25 27);
-    --color-destructive-foreground: oklch(98% 0.01 20);
-
-    --color-border: oklch(25% 0.02 20);
-    --color-input: oklch(25% 0.02 20);
-    --color-ring: oklch(58% 0.27 27);
-
-    /* Success - Green */
-    --color-success: oklch(60% 0.15 145);
-    --color-success-foreground: oklch(10% 0.02 20);
-
-    /* Warning - Orange */
-    --color-warning: oklch(65% 0.2 50);
-    --color-warning-foreground: oklch(10% 0.02 20);
+    --color-background: #0F172A;
+    --color-foreground: #F1F5F9;
+    --color-card: #1E293B;
+    --color-card-foreground: #F1F5F9;
+    --color-popover: #1E293B;
+    --color-popover-foreground: #F1F5F9;
+    --color-primary: #60A5FA;
+    --color-primary-foreground: #0F172A;
+    --color-secondary: #334155;
+    --color-secondary-foreground: #F1F5F9;
+    --color-muted: #334155;
+    --color-muted-foreground: #94A3B8;
+    --color-accent: #A78BFA;
+    --color-accent-foreground: #0F172A;
+    --color-destructive: #F87171;
+    --color-destructive-foreground: #0F172A;
+    --color-border: #334155;
+    --color-input: #1E293B;
+    --color-ring: #60A5FA;
   }
 }
 
 * {
   border-color: var(--color-border);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 body {
@@ -99,179 +89,200 @@ body {
   color: var(--color-foreground);
   font-family: system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-/* Ensure dark mode is applied properly */
-html.dark {
-  color-scheme: dark;
-}
+html.dark { color-scheme: dark; }
+html.light { color-scheme: light; }
 
-html.light {
-  color-scheme: light;
-}
-
-/* Dark mode specific overrides */
-.dark {
-  --color-background: oklch(10% 0.02 20);
-  --color-foreground: oklch(98% 0.01 20);
-  --color-card: oklch(15% 0.02 20);
-  --color-card-foreground: oklch(98% 0.01 20);
-  --color-popover: oklch(12% 0.02 20);
-  --color-popover-foreground: oklch(98% 0.01 20);
-  --color-primary: oklch(58% 0.27 27);
-  --color-primary-foreground: oklch(10% 0.02 20);
-  --color-secondary: oklch(20% 0.02 20);
-  --color-secondary-foreground: oklch(98% 0.01 20);
-  --color-muted: oklch(20% 0.02 20);
-  --color-muted-foreground: oklch(65% 0.01 20);
-  --color-accent: oklch(58% 0.27 27);
-  --color-accent-foreground: oklch(10% 0.02 20);
-  --color-destructive: oklch(55% 0.25 27);
-  --color-destructive-foreground: oklch(98% 0.01 20);
-  --color-border: oklch(25% 0.02 20);
-  --color-input: oklch(25% 0.02 20);
-  --color-ring: oklch(58% 0.27 27);
-}
-
-/* Fitness-themed gradient backgrounds */
+/* Gradients */
 .gradient-bg {
   background: 
-    radial-gradient(circle at 20% 50%, rgba(225, 6, 0, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(225, 6, 0, 0.05) 0%, transparent 50%),
-    linear-gradient(135deg, rgba(225, 6, 0, 0.03) 0%, transparent 50%);
-}
-
-@media (prefers-color-scheme: dark) {
-  .gradient-bg {
-    background: 
-      radial-gradient(circle at 20% 50%, rgba(225, 6, 0, 0.15) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(225, 6, 0, 0.1) 0%, transparent 50%),
-      linear-gradient(135deg, rgba(225, 6, 0, 0.05) 0%, transparent 50%);
-  }
+    radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.06) 0%, transparent 50%),
+    #F8FAFC;
+  transition: background 0.5s ease;
 }
 
 .dark .gradient-bg {
   background: 
-    radial-gradient(circle at 20% 50%, rgba(225, 6, 0, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(225, 6, 0, 0.1) 0%, transparent 50%),
-    linear-gradient(135deg, rgba(225, 6, 0, 0.05) 0%, transparent 50%);
+    radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
+    #0F172A !important;
 }
 
-/* Enhanced card elevation with red glow */
+/* Cards */
 .card-elevated {
   background-color: var(--color-card);
-  border-width: 1px;
-  box-shadow: 
-    0 4px 6px -1px rgb(0 0 0 / 0.1),
-    0 2px 4px -2px rgb(0 0 0 / 0.1),
-    0 0 0 1px rgba(225, 6, 0, 0.05);
-  transition: all 0.3s;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-elevated:hover {
-  box-shadow: 
-    0 20px 25px -5px rgb(0 0 0 / 0.15),
-    0 8px 10px -6px rgb(0 0 0 / 0.1),
-    0 0 0 1px rgba(225, 6, 0, 0.1),
-    0 0 20px rgba(225, 6, 0, 0.15);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(59, 130, 246, 0.1);
   transform: translateY(-2px);
+  border-color: rgba(59, 130, 246, 0.2);
+}
+
+.dark .card-elevated {
+  background-color: #1E293B !important;
+  border: 1px solid #334155 !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
 }
 
 .dark .card-elevated:hover {
-  box-shadow: 
-    0 20px 25px -5px rgb(0 0 0 / 0.3),
-    0 8px 10px -6px rgb(0 0 0 / 0.2),
-    0 0 0 1px rgba(225, 6, 0, 0.2),
-    0 0 30px rgba(225, 6, 0, 0.25);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(96, 165, 250, 0.3);
+  transform: translateY(-2px);
+  border-color: rgba(96, 165, 250, 0.4);
 }
 
-/* Professional focus states with red ring */
+/* Focus States */
 *:focus-visible {
   outline: none;
   box-shadow: 0 0 0 2px var(--color-background), 0 0 0 4px var(--color-ring);
 }
 
-/* Smooth scrollbar with red accent */
-.custom-scrollbar::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
+/* Scrollbar */
+.custom-scrollbar::-webkit-scrollbar { width: 12px; height: 12px; }
+.custom-scrollbar::-webkit-scrollbar-track { background-color: #F1F5F9; border-radius: 10px; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #3B82F6 0%, #2563EB 100%); border-radius: 10px; border: 3px solid #F1F5F9; }
+.custom-scrollbar::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #60A5FA 0%, #3B82F6 100%); }
+.dark .custom-scrollbar::-webkit-scrollbar-track { background-color: #1E293B; }
+.dark .custom-scrollbar::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #60A5FA 0%, #3B82F6 100%); border: 3px solid #1E293B; }
+.dark .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #93C5FD 0%, #60A5FA 100%); }
 
-.custom-scrollbar::-webkit-scrollbar-track {
-  background-color: var(--color-muted);
-  border-radius: 10px;
-}
+/* Animations */
+.animate-fade-in { animation: fadeIn 0.5s ease-in; }
+.animate-slide-up { animation: slideUp 0.6s ease-out; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--color-primary) 0%, color-mix(in srgb, var(--color-primary) 70%, black) 100%);
-  border-radius: 10px;
-  border: 2px solid var(--color-muted);
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, var(--color-accent) 0%, color-mix(in srgb, var(--color-accent) 80%, black) 100%);
-}
-
-/* Red accent pulse animation */
-@keyframes redPulse {
-  0%, 100% {
-    box-shadow: 0 0 0 0 rgba(225, 6, 0, 0.7);
-  }
-  50% {
-    box-shadow: 0 0 0 10px rgba(225, 6, 0, 0);
-  }
-}
-
-.pulse-red {
-  animation: redPulse 2s infinite;
-}
-
-/* Professional animations */
-.animate-fade-in {
-  animation: fadeIn 0.5s ease-in;
-}
-
-.animate-slide-up {
-  animation: slideUp 0.6s ease-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Gradient text for headings */
+/* Gradient Text */
 .gradient-text {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Red glow effect for buttons */
-.glow-red {
-  box-shadow: 0 0 20px rgba(225, 6, 0, 0.3);
+.dark .gradient-text {
+  background: linear-gradient(135deg, #60A5FA 0%, #A78BFA 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.glow-red:hover {
-  box-shadow: 0 0 30px rgba(225, 6, 0, 0.5);
+/* CRITICAL: Dark Mode Text Visibility */
+.dark input,
+.dark textarea,
+.dark select,
+.dark [role="textbox"] {
+  background-color: #1E293B !important;
+  border-color: #334155 !important;
+  color: #F1F5F9 !important;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #64748B !important;
+}
+
+.dark input:hover,
+.dark textarea:hover,
+.dark select:hover {
+  border-color: #475569 !important;
+}
+
+.dark input:focus,
+.dark textarea:focus,
+.dark select:focus {
+  border-color: #60A5FA !important;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1) !important;
+}
+
+/* Dark Mode Labels - CRITICAL */
+.dark label {
+  color: #F1F5F9 !important;
+}
+
+/* Dark Mode Buttons */
+.dark button {
+  border-color: #334155;
+}
+
+.dark button:hover {
+  border-color: #475569;
+}
+
+/* Dark Mode Tabs - FIX THE TAB BAR */
+.dark [role="tablist"] {
+  background-color: #1E293B !important;
+  border: 1px solid #334155 !important;
+}
+
+.dark [role="tab"] {
+  color: #94A3B8 !important;
+  background-color: transparent !important;
+}
+
+.dark [role="tab"]:hover {
+  color: #F1F5F9 !important;
+  background-color: #334155 !important;
+}
+
+.dark [role="tab"][data-state="active"] {
+  background-color: #0F172A !important;
+  color: #F1F5F9 !important;
+  border-color: #60A5FA !important;
+}
+
+/* Light Mode - Ensure text is visible */
+input::placeholder,
+textarea::placeholder {
+  color: #94A3B8;
+}
+
+/* Header visibility */
+header {
+  background-color: var(--color-card) !important;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.dark header {
+  background-color: #1E293B !important;
+  border-bottom-color: #334155 !important;
+}
+
+/* Card Headers in Dark Mode */
+.dark [class*="CardHeader"],
+.dark [class*="card-header"] {
+  color: #F1F5F9 !important;
+}
+
+/* Card Titles */
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: #F1F5F9 !important;
+}
+
+/* Card Descriptions */
+.dark p {
+  color: #94A3B8 !important;
+}
+
+/* Ensure all text is visible */
+.dark * {
+  color: inherit;
+}
+
+.dark .text-muted-foreground {
+  color: #94A3B8 !important;
+}
+
+.dark .text-foreground {
+  color: #F1F5F9 !important;
 }
