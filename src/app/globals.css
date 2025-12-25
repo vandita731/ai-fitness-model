@@ -1,34 +1,45 @@
 @import "tailwindcss";
 
 @theme {
-  /* Professional Blue-Gray Color Palette */
-  --color-background: oklch(98% 0.01 240);
-  --color-foreground: oklch(20% 0.05 222);
+  /* Fitness Red Color Palette - Light Mode */
+  --color-background: oklch(98% 0.01 20);
+  --color-foreground: oklch(15% 0.02 20);
 
   --color-card: oklch(100% 0 0);
-  --color-card-foreground: oklch(20% 0.05 222);
+  --color-card-foreground: oklch(15% 0.02 20);
 
   --color-popover: oklch(100% 0 0);
-  --color-popover-foreground: oklch(20% 0.05 222);
+  --color-popover-foreground: oklch(15% 0.02 20);
 
-  --color-primary: oklch(65% 0.2 217);
+  /* Primary - Vibrant Red */
+  --color-primary: oklch(50% 0.25 27);
   --color-primary-foreground: oklch(100% 0 0);
 
-  --color-secondary: oklch(92% 0.03 214);
-  --color-secondary-foreground: oklch(20% 0.05 222);
+  /* Secondary - Dark Gray */
+  --color-secondary: oklch(92% 0.01 20);
+  --color-secondary-foreground: oklch(15% 0.02 20);
 
-  --color-muted: oklch(92% 0.03 214);
-  --color-muted-foreground: oklch(55% 0.02 215);
+  --color-muted: oklch(95% 0.01 20);
+  --color-muted-foreground: oklch(50% 0.01 20);
 
-  --color-accent: oklch(65% 0.2 217);
+  /* Accent - Bright Red */
+  --color-accent: oklch(55% 0.27 27);
   --color-accent-foreground: oklch(100% 0 0);
 
-  --color-destructive: oklch(60% 0.2 0);
+  --color-destructive: oklch(50% 0.25 27);
   --color-destructive-foreground: oklch(100% 0 0);
 
-  --color-border: oklch(92% 0.03 214);
-  --color-input: oklch(92% 0.03 214);
-  --color-ring: oklch(65% 0.2 217);
+  --color-border: oklch(90% 0.01 20);
+  --color-input: oklch(90% 0.01 20);
+  --color-ring: oklch(50% 0.25 27);
+
+  /* Success - Green */
+  --color-success: oklch(60% 0.15 145);
+  --color-success-foreground: oklch(100% 0 0);
+
+  /* Warning - Orange */
+  --color-warning: oklch(65% 0.2 50);
+  --color-warning-foreground: oklch(100% 0 0);
 
   --radius-lg: 0.75rem;
   --radius-md: 0.5rem;
@@ -37,33 +48,45 @@
 
 @media (prefers-color-scheme: dark) {
   @theme {
-    --color-background: oklch(15% 0.05 222);
-    --color-foreground: oklch(92% 0.03 213);
+    /* Dark Mode - Deep Black with Red Accents */
+    --color-background: oklch(10% 0.02 20);
+    --color-foreground: oklch(98% 0.01 20);
 
-    --color-card: oklch(18% 0.05 222);
-    --color-card-foreground: oklch(92% 0.03 213);
+    --color-card: oklch(15% 0.02 20);
+    --color-card-foreground: oklch(98% 0.01 20);
 
-    --color-popover: oklch(18% 0.05 222);
-    --color-popover-foreground: oklch(92% 0.03 213);
+    --color-popover: oklch(12% 0.02 20);
+    --color-popover-foreground: oklch(98% 0.01 20);
 
-    --color-primary: oklch(65% 0.2 217);
-    --color-primary-foreground: oklch(20% 0.05 222);
+    /* Primary - Vibrant Red (slightly brighter for dark mode) */
+    --color-primary: oklch(58% 0.27 27);
+    --color-primary-foreground: oklch(10% 0.02 20);
 
-    --color-secondary: oklch(22% 0.05 222);
-    --color-secondary-foreground: oklch(92% 0.03 213);
+    /* Secondary - Lighter Gray for contrast */
+    --color-secondary: oklch(20% 0.02 20);
+    --color-secondary-foreground: oklch(98% 0.01 20);
 
-    --color-muted: oklch(22% 0.05 222);
-    --color-muted-foreground: oklch(68% 0.02 215);
+    --color-muted: oklch(20% 0.02 20);
+    --color-muted-foreground: oklch(65% 0.01 20);
 
-    --color-accent: oklch(65% 0.2 217);
-    --color-accent-foreground: oklch(20% 0.05 222);
+    /* Accent - Bright Red */
+    --color-accent: oklch(58% 0.27 27);
+    --color-accent-foreground: oklch(10% 0.02 20);
 
-    --color-destructive: oklch(45% 0.15 0);
-    --color-destructive-foreground: oklch(92% 0.03 213);
+    --color-destructive: oklch(55% 0.25 27);
+    --color-destructive-foreground: oklch(98% 0.01 20);
 
-    --color-border: oklch(22% 0.05 222);
-    --color-input: oklch(22% 0.05 222);
-    --color-ring: oklch(65% 0.2 217);
+    --color-border: oklch(25% 0.02 20);
+    --color-input: oklch(25% 0.02 20);
+    --color-ring: oklch(58% 0.27 27);
+
+    /* Success - Green */
+    --color-success: oklch(60% 0.15 145);
+    --color-success-foreground: oklch(10% 0.02 20);
+
+    /* Warning - Orange */
+    --color-warning: oklch(65% 0.2 50);
+    --color-warning-foreground: oklch(10% 0.02 20);
   }
 }
 
@@ -82,57 +105,129 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Professional gradient background */
+/* Ensure dark mode is applied properly */
+html.dark {
+  color-scheme: dark;
+}
+
+html.light {
+  color-scheme: light;
+}
+
+/* Dark mode specific overrides */
+.dark {
+  --color-background: oklch(10% 0.02 20);
+  --color-foreground: oklch(98% 0.01 20);
+  --color-card: oklch(15% 0.02 20);
+  --color-card-foreground: oklch(98% 0.01 20);
+  --color-popover: oklch(12% 0.02 20);
+  --color-popover-foreground: oklch(98% 0.01 20);
+  --color-primary: oklch(58% 0.27 27);
+  --color-primary-foreground: oklch(10% 0.02 20);
+  --color-secondary: oklch(20% 0.02 20);
+  --color-secondary-foreground: oklch(98% 0.01 20);
+  --color-muted: oklch(20% 0.02 20);
+  --color-muted-foreground: oklch(65% 0.01 20);
+  --color-accent: oklch(58% 0.27 27);
+  --color-accent-foreground: oklch(10% 0.02 20);
+  --color-destructive: oklch(55% 0.25 27);
+  --color-destructive-foreground: oklch(98% 0.01 20);
+  --color-border: oklch(25% 0.02 20);
+  --color-input: oklch(25% 0.02 20);
+  --color-ring: oklch(58% 0.27 27);
+}
+
+/* Fitness-themed gradient backgrounds */
 .gradient-bg {
   background: 
-    linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
-    linear-gradient(225deg, rgba(99, 102, 241, 0.05) 0%, transparent 50%);
+    radial-gradient(circle at 20% 50%, rgba(225, 6, 0, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(225, 6, 0, 0.05) 0%, transparent 50%),
+    linear-gradient(135deg, rgba(225, 6, 0, 0.03) 0%, transparent 50%);
 }
 
 @media (prefers-color-scheme: dark) {
   .gradient-bg {
     background: 
-      linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-      linear-gradient(225deg, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
+      radial-gradient(circle at 20% 50%, rgba(225, 6, 0, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(225, 6, 0, 0.1) 0%, transparent 50%),
+      linear-gradient(135deg, rgba(225, 6, 0, 0.05) 0%, transparent 50%);
   }
 }
 
-/* Clean card elevation */
+.dark .gradient-bg {
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(225, 6, 0, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(225, 6, 0, 0.1) 0%, transparent 50%),
+    linear-gradient(135deg, rgba(225, 6, 0, 0.05) 0%, transparent 50%);
+}
+
+/* Enhanced card elevation with red glow */
 .card-elevated {
   background-color: var(--color-card);
-  border-width: 2px;
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  border-width: 1px;
+  box-shadow: 
+    0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1),
+    0 0 0 1px rgba(225, 6, 0, 0.05);
   transition: all 0.3s;
 }
 
 .card-elevated:hover {
-  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-  transform: translateY(-0.25rem);
+  box-shadow: 
+    0 20px 25px -5px rgb(0 0 0 / 0.15),
+    0 8px 10px -6px rgb(0 0 0 / 0.1),
+    0 0 0 1px rgba(225, 6, 0, 0.1),
+    0 0 20px rgba(225, 6, 0, 0.15);
+  transform: translateY(-2px);
 }
 
-/* Professional focus states */
+.dark .card-elevated:hover {
+  box-shadow: 
+    0 20px 25px -5px rgb(0 0 0 / 0.3),
+    0 8px 10px -6px rgb(0 0 0 / 0.2),
+    0 0 0 1px rgba(225, 6, 0, 0.2),
+    0 0 30px rgba(225, 6, 0, 0.25);
+}
+
+/* Professional focus states with red ring */
 *:focus-visible {
   outline: none;
   box-shadow: 0 0 0 2px var(--color-background), 0 0 0 4px var(--color-ring);
 }
 
-/* Smooth scrollbar */
+/* Smooth scrollbar with red accent */
 .custom-scrollbar::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
   background-color: var(--color-muted);
+  border-radius: 10px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: color-mix(in srgb, var(--color-primary) 50%, transparent);
-  border-radius: 9999px;
+  background: linear-gradient(180deg, var(--color-primary) 0%, color-mix(in srgb, var(--color-primary) 70%, black) 100%);
+  border-radius: 10px;
+  border: 2px solid var(--color-muted);
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background-color: color-mix(in srgb, var(--color-primary) 70%, transparent);
+  background: linear-gradient(180deg, var(--color-accent) 0%, color-mix(in srgb, var(--color-accent) 80%, black) 100%);
+}
+
+/* Red accent pulse animation */
+@keyframes redPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(225, 6, 0, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(225, 6, 0, 0);
+  }
+}
+
+.pulse-red {
+  animation: redPulse 2s infinite;
 }
 
 /* Professional animations */
@@ -164,41 +259,19 @@ html {
   }
 }
 
-
-/* Ensure dark mode is applied properly */
-html.dark {
-  color-scheme: dark;
+/* Gradient text for headings */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-html.light {
-  color-scheme: light;
+/* Red glow effect for buttons */
+.glow-red {
+  box-shadow: 0 0 20px rgba(225, 6, 0, 0.3);
 }
 
-/* Dark mode specific overrides */
-.dark {
-  --color-background: oklch(15% 0.05 222);
-  --color-foreground: oklch(92% 0.03 213);
-  --color-card: oklch(18% 0.05 222);
-  --color-card-foreground: oklch(92% 0.03 213);
-  --color-popover: oklch(18% 0.05 222);
-  --color-popover-foreground: oklch(92% 0.03 213);
-  --color-primary: oklch(65% 0.2 217);
-  --color-primary-foreground: oklch(20% 0.05 222);
-  --color-secondary: oklch(22% 0.05 222);
-  --color-secondary-foreground: oklch(92% 0.03 213);
-  --color-muted: oklch(22% 0.05 222);
-  --color-muted-foreground: oklch(68% 0.02 215);
-  --color-accent: oklch(65% 0.2 217);
-  --color-accent-foreground: oklch(20% 0.05 222);
-  --color-destructive: oklch(45% 0.15 0);
-  --color-destructive-foreground: oklch(92% 0.03 213);
-  --color-border: oklch(22% 0.05 222);
-  --color-input: oklch(22% 0.05 222);
-  --color-ring: oklch(65% 0.2 217);
-}
-
-.dark .gradient-bg {
-  background: 
-    linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-    linear-gradient(225deg, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
+.glow-red:hover {
+  box-shadow: 0 0 30px rgba(225, 6, 0, 0.5);
 }

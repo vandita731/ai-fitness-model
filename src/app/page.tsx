@@ -154,10 +154,10 @@ export default function Home() {
               <Tabs defaultValue="fitness-plan" className="w-full">
                 <TabsList className="grid w-full grid-cols-2 mb-8 h-12 card-elevated">
                   <TabsTrigger value="fitness-plan" className="text-base font-medium">
-                    🏋️ Fitness Plan Generator
+                     Fitness Plan Generator
                   </TabsTrigger>
                   <TabsTrigger value="calorie-calc" className="text-base font-medium">
-                    🔥 Calorie Calculator
+                     Calorie Calculator
                   </TabsTrigger>
                 </TabsList>
 
